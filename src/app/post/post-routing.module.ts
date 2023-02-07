@@ -1,12 +1,12 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
-import { CreateComponent } from './post/create/create.component';
-import { EditComponent } from './post/edit/edit.component';
-import { IndexComponent } from './post/index/index.component';
-import { ViewComponent } from './post/view/view.component';
+import { CreateComponent } from './create/create.component';
+import { EditComponent } from './edit/edit.component';
+import { IndexComponent } from './index/index.component';
+import { ViewComponent } from './view/view.component';
 
 const routes: Routes = [
-  { path: '', component: IndexComponent },
+  { path: 'post', redirectTo: 'post/index', pathMatch: 'full' },
   { path: 'post/index', component: IndexComponent },
   { path: 'post/:postId/view', component: ViewComponent },
   { path: 'post/create', component: CreateComponent },
@@ -14,7 +14,7 @@ const routes: Routes = [
 ];
 
 @NgModule({
-  imports: [RouterModule.forRoot(routes)],
+  imports: [RouterModule.forChild(routes)],
   exports: [RouterModule]
 })
-export class AppRoutingModule { }
+export class PostRoutingModule { }
